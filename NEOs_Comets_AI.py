@@ -372,8 +372,9 @@ def image_to_text(image_path, cometa_selecionado):
         else:
             raise ValueError("Tipo de entrada no soportado, debe ser str o BytesIO")
 
-    GROQ_API_KEY = os.getenv('GROQ_API_KEY')
-
+    #GROQ_API_KEY = os.getenv('GROQ_API_KEY')
+    GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
+    
     # Getting the base64 string
     base64_image = encode_image(image_path)
     
@@ -403,8 +404,9 @@ def image_to_text(image_path, cometa_selecionado):
 def llm_cometas_y_neos(pregunta, selected_neo_comet):
     if pregunta:
 
-        GROQ_API_KEY = os.getenv('GROQ_API_KEY')
-
+        #GROQ_API_KEY = os.getenv('GROQ_API_KEY')
+        GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
+        
         groq_url = "https://api.groq.com/openai/v1/chat/completions"
 
         headers_groq = {
@@ -442,7 +444,8 @@ def llm_cometas_y_neos(pregunta, selected_neo_comet):
         
 tab_neos, tab_comets = st.tabs(["NEOs", "Comets"])
 
-api_key = os.getenv('NASA_API_KEY')
+#api_key = os.getenv('NASA_API_KEY')
+api_key = st.secrets["NASA_API_KEY"]
 
 neo_names = None
     
@@ -573,7 +576,8 @@ with tab_comets:
             text_orbita_img = image_to_text(image_comet, cometa_seleccionado)
             st.success(":robot_face: {}".format(text_orbita_img))
             
-            api_key_eleven_labs = os.getenv('EL_API_KEY')
+            #api_key_eleven_labs = os.getenv('EL_API_KEY')
+            api_key_eleven_labs = st.secrets["EL_API_KEY"]
             voice_id = "9BWtsMINqrJLrRacOk9x"
             
             url_el = f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}"
