@@ -13,7 +13,7 @@ This project is an artificial intelligence application that analyzes and visuali
 - Sample comet orbits to create melodies.
 - Train LLMs using AI-generated audio for visually impaired individuals.
 - User-friendly interface with Streamlit.
-- 
+  
 ## Requirements
 
 Make sure to have the following libraries installed:
