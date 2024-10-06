@@ -1,0 +1,9 @@
+matplotlib
+streamlit
+pandas
+requests
+plotly
+numpy
+python-dotenv
+soundfile
+groq
